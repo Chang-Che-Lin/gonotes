@@ -3,8 +3,11 @@
 ## fmt
 
 ```go
+// Print
 fmt.Printf()
 fmt.Println()
+// Format string
+fmt.Sprintf()
 ```
 
 ## String
@@ -15,8 +18,9 @@ func main() {
 }
 ```
 
-|Result|This is a "raw string"|
-|------|----------------------|
+|Result                |
+|----------------------|
+|This is a "raw string"|
 
 ## Slice
 
@@ -37,8 +41,27 @@ func sum(nums ...int) int {
 }
 ```
 
-|Result|6 15|
-|------|----|
+|Result|
+|------|
+|6 15  |
+
+## Map
+
+```go
+func main() {
+	m := make(map[string]int)
+	m["ID_01"] = 20
+	fmt.Println(m)
+
+	m = map[string]int{"ID_02": 30}
+	fmt.Println(m)
+}
+```
+
+|Result       |
+|-------------|
+|map[ID_01:20]|
+|map[ID_02:30]|
 
 # Interface 
 
@@ -60,5 +83,57 @@ func myFunc(i interface{}) {
 }
 ```
 
-|Result|Type: int, Value: 10|
-|------|--------------------|
+|Result              |
+|--------------------|
+|Type: int, Value: 10|
+
+# For loop
+
+```go
+func main() {
+	var i = 0
+	for i < 3 {
+		i++
+		fmt.Println(i)
+	}
+}
+```
+
+|Result              |
+|--------------------|
+|1|
+|2|
+|3|
+
+---
+
+```go
+func main() {
+	for i := 0; i < 3; i++ {
+		fmt.Println(i)
+	}
+}
+```
+
+|Result              |
+|--------------------|
+|0|
+|1|
+|2|
+
+# Function
+
+```go
+func main() {
+	func() {
+		fmt.Println("This is a anonymous function")
+	}()
+}
+```
+
+|Result|
+|----------------------------|
+|This is a anonymous function|
+
+
+
