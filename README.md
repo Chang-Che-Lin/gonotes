@@ -63,7 +63,7 @@ func main() {
 |map[ID_01:20]|
 |map[ID_02:30]|
 
-# Interface 
+## Interface 
 
 Interface is like `protocol` in Swift.
 Every type in Go is of interface `interface{}`.
@@ -87,7 +87,7 @@ func myFunc(i interface{}) {
 |--------------------|
 |Type: int, Value: 10|
 
-# For loop
+## For
 
 ```go
 func main() {
@@ -121,7 +121,7 @@ func main() {
 |1|
 |2|
 
-# Function
+## Function
 
 ```go
 func main() {
