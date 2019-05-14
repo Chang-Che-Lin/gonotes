@@ -1,4 +1,4 @@
-#Go note
+# Go note
 
 # fmt
 
