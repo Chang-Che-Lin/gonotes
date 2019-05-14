@@ -1,13 +1,13 @@
 # Go note
 
-# fmt
+## fmt
 
 ```go
 fmt.Printf()
 fmt.Println()
 ```
 
-# String
+## String
 
 ```go
 func main() {
@@ -18,7 +18,7 @@ func main() {
 |Result|This is a "raw string"|
 |------|----------------------|
 
-# Slice
+## Slice
 
 The underlying array will be nil if you call variadic without any of argument.
 
