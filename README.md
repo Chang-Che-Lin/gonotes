@@ -53,7 +53,8 @@ func main() {
 	m["ID_01"] = 20
 	fmt.Println(m)
 
-	m = map[string]int{"ID_02": 30}
+	m = map[string]int{"ID_01": 20, "ID_02": 30}
+	delete(m, "ID_01")
 	fmt.Println(m)
 }
 ```
