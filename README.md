@@ -10,6 +10,10 @@
 
 ---
 
+## Types
+
+byte = uint8
+
 ## fmt
 
 ```go
