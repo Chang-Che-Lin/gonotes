@@ -137,8 +137,8 @@ func main() {
 |Area = 314.159, circumference = 62.832|
 |Area = 314.159, circumference = 62.832|
 
-Because the `circumference()` in struct `circle` use pointer receiver,
-so we must use pointer of a circle as a argument for `printCircleInfo()`.
+The `circumference()` in struct `circle` use pointer receiver,
+so we must pass a pointer of `circle` as argument for `printCircleInfo()`.
 
 ## For
 
