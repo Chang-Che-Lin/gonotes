@@ -66,7 +66,7 @@ func main() {
 
 ## Interface 
 
-Interface is like `protocol` in Swift.
+Go interface is like `protocol` in Swift.
 Every type in Go is of interface `interface{}`.
 
 ```golang
