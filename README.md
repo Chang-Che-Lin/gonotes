@@ -8,6 +8,7 @@
 - [For](#for)
 - [Function](#function)
 - [JSON](#json)
+- [Sort](#Sort)
 
 ---
 
@@ -229,3 +230,37 @@ func main() {
 The tag after var in struct is like `CodingKey` in Swift:
 > Name string \`json:"RealName"\`
 
+## Sort
+
+```go
+type player struct {
+	id   int
+	name string
+}
+
+type src []player
+
+func (s src) Len() int {
+	return len(s)
+}
+
+func (s src) Less(i, j int) bool {
+	return s[i].id < s[j].id
+}
+
+func (s src) Swap(i, j int) {
+	s[i], s[j] = s[j], s[i]
+}
+
+func main() {
+	players := []player{{3, "James"}, {2, "Jason"}, {1, "Jack"}, {0, "Jackie"}, {4, "John"}}
+	fmt.Println(players)
+	sort.Sort(src(players))
+	fmt.Println(players)
+}
+````
+
+|Result|
+|-|
+|[{3 James} {2 Jason} {1 Jack} {0 Jackie} {4 John}]|
+|[{0 Jackie} {1 Jack} {2 Jason} {3 James} {4 John}]|
