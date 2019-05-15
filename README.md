@@ -226,3 +226,6 @@ func main() {
 |[{"RealName":"scchn","Age":26},{"RealName":"gbchn","Age":25}]|
 |[{sc chn 26} {gb chn 25}]|
 
+The tag after var in struct is like `CodingKey` in Swift:
+> Name string \`json:"RealName"\`
+
