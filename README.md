@@ -1,12 +1,12 @@
 # Go note
 
-- [fmt](https://github.com/scchnxx/Go-note#fmt)
-- [String](https://github.com/scchnxx/Go-note#string)
-- [Slice](https://github.com/scchnxx/Go-note#slice)
-- [Map](https://github.com/scchnxx/Go-note#map)
-- [Interface](https://github.com/scchnxx/Go-note#interface)
-- [For](https://github.com/scchnxx/Go-note#for)
-- [Function](https://github.com/scchnxx/Go-note#function)
+- [fmt](#fmt)
+- [String](#string)
+- [Slice](#slice)
+- [Map](#map)
+- [Interface](#interface)
+- [For](#for)
+- [Function](#function)
 
 ---
 
