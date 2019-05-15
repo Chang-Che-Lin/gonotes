@@ -7,6 +7,7 @@
 - [Interface](#interface)
 - [For](#for)
 - [Function](#function)
+- [JSON](#json)
 
 ---
 
@@ -192,5 +193,36 @@ func main() {
 |----------------------------|
 |This is a anonymous function|
 
+## JSON
 
+```go
+type person struct {
+	Name string `json:"RealName"`
+	Age  int    `json:"Age"`
+}
+
+func main() {
+	p1 := person{"scchn", 26}
+	p2 := person{"gbchn", 25}
+
+	if data, err := json.Marshal([]person{p1, p2}); err == nil {
+		var people []person
+
+		fmt.Println(string(data))
+
+		if err = json.Unmarshal(data, &people); err == nil {
+			fmt.Println(people)
+		} else {
+			fmt.Println(err)
+		}
+	} else {
+		fmt.Println(err)
+	}
+}
+```
+
+|Result|
+|------|
+|[{"RealName":"scchn","Age":26},{"RealName":"gbchn","Age":25}]|
+|[{sc chn 26} {gb chn 25}]|
 
