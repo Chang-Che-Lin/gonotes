@@ -24,26 +24,31 @@ func main() {
 
 ## Slice
 
-The underlying array will be nil if you call variadic without any of argument.
+The underlying array will be nil if the variadic argument is empty.
 
 ```go
 func main() {
 	s := []int{4, 5, 6}
-	fmt.Println(sum(1, 2, 3), sum(s...))
+	printSum(1, 2, 3)
+	printSum(s...)
+	printSum()
 }
 
-func sum(nums ...int) int {
+func printSum(nums ...int) int {
 	s := 0
 	for _, n := range nums {
 		s += n
 	}
+	fmt.Printf("Is nil : %-5v, sum = %2d\n", nums == nil, s)
 	return s
 }
 ```
 
 |Result|
 |------|
-|6 15  |
+|Is nil : false, sum =  6|
+|Is nil : false, sum = 15|
+|Is nil : true , sum =  0|
 
 ## Map
 
@@ -87,6 +92,43 @@ func myFunc(i interface{}) {
 |Result              |
 |--------------------|
 |Type: int, Value: 10|
+
+---
+
+```go
+type circuclar interface {
+	area() float64
+	circumference() float64
+}
+
+type circle struct {
+	radius float64
+}
+
+func (c circle) area() float64 { return math.Pi * c.radius * c.radius }
+
+func (c *circle) circumference() float64 { return math.Pi * c.radius * 2 }
+
+func printCircleInfo(c circuclar) {
+	fmt.Printf("Area = %.3f, circumference = %.3f\n", c.area(), c.circumference())
+}
+
+func main() {
+	vCircle := circle{10}
+	rCircle := &circle{10}
+
+	printCircleInfo(&vCircle)
+	printCircleInfo(rCircle)
+}
+```
+
+|Result           |
+|-----------------|
+|Area = 314.159, circumference = 62.832|
+|Area = 314.159, circumference = 62.832|
+
+Because the `circumference()` in struct `circle` use pointer receiver,
+so we must use pointer of a circle as a argument for `printCircleInfo()`.
 
 ## For
 
