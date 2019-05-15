@@ -191,7 +191,7 @@ func main() {
 
 |Result|
 |----------------------------|
-|This is a anonymous function|
+|This is an anonymous function|
 
 ## JSON
 
