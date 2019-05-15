@@ -211,7 +211,7 @@ func main() {
 		fmt.Println(string(data))
 
 		if err = json.Unmarshal(data, &people); err == nil {
-			fmt.Println(people)
+			fmt.Printf("%+v\n", people)
 		} else {
 			fmt.Println(err)
 		}
@@ -224,7 +224,7 @@ func main() {
 |Result|
 |------|
 |[{"RealName":"scchn","Age":26},{"RealName":"gbchn","Age":25}]|
-|[{sc chn 26} {gb chn 25}]|
+|[{Name:scchn Age:26} {Name:gbchn Age:25}]|
 
 The tag after var in struct is like `CodingKey` in Swift:
 > Name string \`json:"RealName"\`
