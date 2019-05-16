@@ -9,8 +9,13 @@
 - [Function](#function)
 - [JSON](#json)
 - [Sort](#Sort)
+- [Crypto](#crypto)
 
 ---
+
+## Package
+
+The `x` package is like the experimental standard library which hasn't migrated to the standard library.
 
 ## Types
 
@@ -262,3 +267,31 @@ func main() {
 |-|
 |[{James 22} {Jordan 19} {Jack 39}]|
 |[{Jordan 19} {James 22} {Jack 39}]|
+
+
+## Crypto
+
+```go
+import "golang.org/x/crypto/bcrypt"
+
+func main() {
+	password := "password"
+
+	if bs, err := bcrypt.GenerateFromPassword([]byte(password), bcrypt.MinCost); err == nil {
+		fmt.Println(string(bs))
+
+		err := bcrypt.CompareHashAndPassword(bs, []byte(password))
+
+		if err == nil {
+			fmt.Println("Password correct")
+		} else {
+			fmt.Println("Wrong password")
+		}
+	}
+}
+```
+
+|Result|
+|-|
+|$2a$04$XTBZQ4r/XLhF0K/5kqwBF.SwbWIdmAw3cJEQf5aTa1CLBsD.hOuLG|
+|Password correct|
