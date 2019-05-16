@@ -246,6 +246,10 @@ type Person struct {
 	Age  int
 }
 
+func (p *Person) info() string {
+	return fmt.Sprintf("%s(%d)", p.Name, p.Age)
+}
+
 type ByAge []Person
 
 func (s ByAge) Len() int           { return len(s) }
@@ -259,16 +263,23 @@ func main() {
 		Person{Name: "Jack", Age: 39},
 	}
 
-	fmt.Println(people)
+	printInfo(people)
 	sort.Sort(ByAge(people))
-	fmt.Println(people)
+	printInfo(people)
+}
+
+func printInfo(ps []Person) {
+	for _, p := range ps {
+		fmt.Print(p.info(), " ")
+	}
+	fmt.Println()
 }
 ````
 
 |Result|
 |-|
-|[{James 22} {Jordan 19} {Jack 39}]|
-|[{Jordan 19} {James 22} {Jack 39}]|
+|James(22) Jordan(19) Jack(39)| 
+|Jordan(19) James(22) Jack(39)|
 
 
 ## Crypto
