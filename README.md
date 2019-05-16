@@ -40,8 +40,6 @@ func main() {
 
 ## Slice
 
-The underlying array will be nil if the variadic argument is empty.
-
 ```go
 func main() {
 	s := []int{4, 5, 6}
@@ -65,6 +63,9 @@ func printSum(nums ...int) int {
 |Is nil : false, sum =  6|
 |Is nil : false, sum = 15|
 |Is nil : true , sum =  0|
+
+The underlying array will be nil if the variadic argument is empty.
+> printSum()
 
 ## Map
 
@@ -227,7 +228,7 @@ func main() {
 |[{"RealName":"scchn","Age":26},{"RealName":"gbchn","Age":25}]|
 |[{Name:scchn Age:26} {Name:gbchn Age:25}]|
 
-The tag after var in struct is like `CodingKey` in Swift:
+The JSON tag after var declaration is like `CodingKey` in Swift:
 > Name string \`json:"RealName"\`
 
 ## Sort
