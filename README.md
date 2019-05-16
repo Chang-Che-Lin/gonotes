@@ -70,6 +70,7 @@ func printSum(nums ...int) int {
 |Is nil : true , sum =  0|
 
 > printSum()
+
 The underlying array will be nil if the variadic argument is empty.
 
 ## Map
@@ -234,6 +235,7 @@ func main() {
 |[{Name:scchn Age:26} {Name:gbchn Age:25}]|
 
 > Name string \`json:"RealName"\`
+
 The JSON tag after var declaration is like `CodingKey` in Swift:
 
 ## Sort
