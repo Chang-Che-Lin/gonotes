@@ -233,34 +233,31 @@ The tag after var in struct is like `CodingKey` in Swift:
 ## Sort
 
 ```go
-type player struct {
-	id   int
-	name string
+type Person struct {
+	Name string
+	Age  int
 }
 
-type src []player
+type ByAge []Person
 
-func (s src) Len() int {
-	return len(s)
-}
-
-func (s src) Less(i, j int) bool {
-	return s[i].id < s[j].id
-}
-
-func (s src) Swap(i, j int) {
-	s[i], s[j] = s[j], s[i]
-}
+func (s ByAge) Len() int           { return len(s) }
+func (s ByAge) Swap(i, j int)      { s[i], s[j] = s[j], s[i] }
+func (s ByAge) Less(i, j int) bool { return s[i].Age < s[j].Age }
 
 func main() {
-	players := []player{{3, "James"}, {2, "Jason"}, {1, "Jack"}, {0, "Jackie"}, {4, "John"}}
-	fmt.Println(players)
-	sort.Sort(src(players))
-	fmt.Println(players)
+	people := []Person{
+		Person{Name: "James", Age: 22},
+		Person{Name: "Jordan", Age: 19},
+		Person{Name: "Jack", Age: 39},
+	}
+
+	fmt.Println(people)
+	sort.Sort(ByAge(people))
+	fmt.Println(people)
 }
 ````
 
 |Result|
 |-|
-|[{3 James} {2 Jason} {1 Jack} {0 Jackie} {4 John}]|
-|[{0 Jackie} {1 Jack} {2 Jason} {3 James} {4 John}]|
+|[{James 22} {Jordan 19} {Jack 39}]|
+|[{Jordan 19} {James 22} {Jack 39}]|
