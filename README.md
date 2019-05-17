@@ -17,7 +17,7 @@
 
 ## Command 
 
-Check if there's a race condition in out code.
+Check if there's a race condition in our code.
 > go run -race main.go 
 
 ## Package
