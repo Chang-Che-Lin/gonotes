@@ -433,3 +433,49 @@ func from11To20() {
 |Result|
 |-|
 |11 12 13 14 15 16 17 18 19 20 1 2 3 4 5 6 7 8 9 10|
+
+```go
+var (
+	mux = sync.Mutex{}
+)
+
+func main() {
+	f(1000, inc1)
+	f(1000, inc2)
+	f(1000, inc3)
+}
+
+func inc1(num *int64) { *num++ }
+
+func inc2(num *int64) { atomic.AddInt64(num, 1) }
+
+func inc3(num *int64) {
+	mux.Lock()
+	*num++
+	mux.Unlock()
+}
+
+func f(times int, inc func(*int64)) {
+	counter := int64(0)
+	wg := sync.WaitGroup{}
+
+	wg.Add(times)
+
+	for i := 0; i < times; i++ {
+		go func() {
+			inc(&counter)
+			wg.Done()
+		}()
+	}
+
+	wg.Wait()
+
+	fmt.Println("Counter =", counter)
+}
+```
+
+|Result        |
+|--------------|
+|Counter = 985 |
+|Counter = 1000|
+|Counter = 1000|
