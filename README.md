@@ -23,6 +23,41 @@ The `x` package is like the experimental standard library which hasn't migrated 
 
 byte = uint8
 
+## Method Set
+
+[Language spec](https://golang.org/ref/spec#Method_sets)
+> The method set of a type determines the interfaces that the type implements and the methods that can be called using a 
+> receiver of that type.
+
+```go
+type Greetable interface{ greeting() }
+
+type Person struct {
+	firstName string
+	lastName  string
+}
+
+func (p Person) fullName() string { return p.firstName + " " + p.lastName }
+func (p *Person) greeting()       { fmt.Printf("%s says hi!\n", p.fullName()) }
+
+func main() {
+	person := Person{"英九", "辣寶貝"}
+	person.greeting()
+	(&person).greeting()
+	greet(&person)
+	// greet(person) // This will cause compiler error.
+}
+
+func greet(g Greetable) {
+	g.greeting()
+}
+```
+
+|              |Type  |Interface            |
+|--------------|------|---------------------|
+|**Method Set**|T, \*T|Same type as receiver|
+
+
 ## fmt
 
 ```go
