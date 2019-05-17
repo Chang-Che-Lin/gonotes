@@ -208,7 +208,21 @@ func main() {
 |2|
 |3|
 
----
+```go
+func main() {
+	i := 0
+	a := make([]int, 5)
+
+	for range a {
+		i++
+		fmt.Printf("%d ", i)
+	}
+}
+```
+
+|Result              |
+|--------------------|
+|1 2 3 4 5	     |
 
 ```go
 func main() {
