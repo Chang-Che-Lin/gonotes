@@ -210,6 +210,20 @@ func main() {
 
 ```go
 func main() {
+	for i := 0; i < 3; i++ {
+		fmt.Println(i)
+	}
+}
+```
+
+|Result              |
+|--------------------|
+|0|
+|1|
+|2|
+
+```go
+func main() {
 	i := 0
 	a := make([]int, 5)
 
@@ -224,19 +238,20 @@ func main() {
 |--------------------|
 |1 2 3 4 5	     |
 
+
 ```go
 func main() {
-	for i := 0; i < 3; i++ {
-		fmt.Println(i)
+	a := []int{1, 2, 3}
+
+	for i, v := range a {
+		fmt.Printf("%d.%d ", i, v)
 	}
 }
 ```
 
 |Result              |
 |--------------------|
-|0|
-|1|
-|2|
+|0.1 1.2 2.3	     |
 
 ## Function
 
