@@ -10,6 +10,7 @@
 - [JSON](#json)
 - [Sort](#Sort)
 - [Crypto](#crypto)
+- [Runtime](#runtime)
 
 ---
 
@@ -308,3 +309,22 @@ func main() {
 |-|
 |$2a$04$XTBZQ4r/XLhF0K/5kqwBF.SwbWIdmAw3cJEQf5aTa1CLBsD.hOuLG|
 |Password correct|
+
+
+## Runtime
+
+```go
+func main() {
+	fmt.Println("ARCH      :", runtime.GOARCH)
+	fmt.Println("OS        :", runtime.GOOS)
+	fmt.Println("CPUs      :", runtime.NumCPU())
+	fmt.Println("Goroutines:", runtime.NumGoroutine())
+}
+```
+
+|Result|
+|-|
+|ARCH      : amd64 |
+|OS        : darwin|
+|CPUs      : 4	   |
+|Goroutines: 1	   |
