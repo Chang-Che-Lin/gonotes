@@ -11,6 +11,7 @@
 - [Sort](#Sort)
 - [Crypto](#crypto)
 - [Runtime](#runtime)
+- [Sync](#sync)
 
 ---
 
@@ -328,3 +329,38 @@ func main() {
 |OS        : darwin|
 |CPUs      : 4	   |
 |Goroutines: 1	   |
+
+
+## Sync 
+
+`WaitGroup` is like `DispatchSemaphore` in Swift.
+
+```go
+func main() {
+	var wg sync.WaitGroup
+
+	wg.Add(1)
+
+	go from1To10(&wg)
+	from11To20()
+
+	wg.Wait()
+}
+
+func from1To10(wg *sync.WaitGroup) {
+	for i := 1; i <= 10; i++ {
+		fmt.Print(i, " ")
+	}
+	wg.Done()
+}
+
+func from11To20() {
+	for i := 11; i <= 20; i++ {
+		fmt.Print(i, " ")
+	}
+}
+```
+
+|Result|
+|-|
+|11 12 13 14 15 16 17 18 19 20 1 2 3 4 5 6 7 8 9 10|
