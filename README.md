@@ -12,6 +12,7 @@
 - [Crypto](#crypto)
 - [Runtime](#runtime)
 - [Sync](#sync)
+- [Channel](channel)
 
 ---
 
@@ -481,3 +482,8 @@ func f(times int, inc func(*int64)) {
 |Counter = 985 |
 |Counter = 1000|
 |Counter = 1000|
+
+## Channel
+
+Channels are allocated with make and may be closed with the built-in function close().
+
