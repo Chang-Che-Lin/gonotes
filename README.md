@@ -485,5 +485,5 @@ func f(times int, inc func(*int64)) {
 
 ## Channel
 
-Channels are allocated with make and may be closed with the built-in function close().
+Channels are allocated with make and may be closed with the built-in function `close`.
 
