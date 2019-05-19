@@ -487,3 +487,23 @@ func f(times int, inc func(*int64)) {
 
 Channels are allocated with make and may be closed with the built-in function `close`.
 
+```go
+func main() {
+	// unbuffered channel
+	c := make(chan string)
+	go recv(c)
+	fmt.Println(<-c)
+	close(c)
+	// buffered channel
+	c = make(chan string, 1)
+	recv(c)
+	fmt.Println(<-c)
+	close(c)
+	fmt.Println(isclosed)
+}
+
+func recv(c chan string) {
+	time.Sleep(time.Duration(500) * time.Millisecond)
+	c <- "Content"
+}
+```
