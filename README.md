@@ -498,8 +498,6 @@ func main() {
 	c = make(chan string, 1)
 	recv(c)
 	fmt.Println(<-c)
-	close(c)
-	fmt.Println(isclosed)
 }
 
 func recv(c chan string) {
