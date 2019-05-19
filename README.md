@@ -491,17 +491,46 @@ Channels are allocated with make and may be closed with the built-in function `c
 func main() {
 	// unbuffered channel
 	c := make(chan string)
-	go recv(c)
+	go getData(c)
 	fmt.Println(<-c)
 	close(c)
 	// buffered channel
 	c = make(chan string, 1)
-	recv(c)
+	getData(c)
 	fmt.Println(<-c)
 }
 
-func recv(c chan string) {
+func getData(c chan string) {
 	time.Sleep(time.Duration(500) * time.Millisecond)
 	c <- "Content"
+}
+```
+
+Using select:
+```go
+func main() {
+	c := make(chan string)
+
+	go getData(c)
+
+	select {
+	case res := <-c:
+		fmt.Println(res)
+	case <-time.After(time.Second):
+		fmt.Println("request timed-out")
+	}
+
+	go getData(c)
+
+	select {
+	case v, ok := <-c:
+		if ok {
+			fmt.Println(v)
+		} else {
+			fmt.Println("channel closed")
+		}
+	case <-time.After(time.Second):
+		fmt.Println("request timed-out")
+	}
 }
 ```
