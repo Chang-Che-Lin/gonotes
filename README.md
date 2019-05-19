@@ -485,7 +485,7 @@ func f(times int, inc func(*int64)) {
 
 ## Channel
 
-Channels are allocated with make and may be closed with the built-in function `close`.
+Channels are allocated with [make](https://golang.org/ref/spec#Making_slices_maps_and_channels) and may be closed with the built-in function [close](https://golang.org/ref/spec#Close).
 
 ```go
 func main() {
@@ -506,7 +506,7 @@ func getData(c chan string) {
 }
 ```
 
-Using select:
+Using [select](https://golang.org/ref/spec#Select_statements):
 ```go
 func main() {
 	c := make(chan string)
