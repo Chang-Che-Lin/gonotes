@@ -12,7 +12,7 @@
 - [Crypto](#crypto)
 - [Runtime](#runtime)
 - [Sync](#sync)
-- [Channel](channel)
+- [Channel](#channel)
 
 ---
 
