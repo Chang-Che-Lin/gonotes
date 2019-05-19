@@ -17,16 +17,14 @@
 
 ## Other Stuff
 
-[Golang Proverbs](https://go-proverbs.github.io/)
+- [Golang Proverbs](https://go-proverbs.github.io/)
+
+- The `x` package is like the experimental standard library which hasn't migrated to the standard library.
 
 ## Command 
 
 Check if there's a race condition in our code.
 > go run -race main.go 
-
-## Package
-
-The `x` package is like the experimental standard library which hasn't migrated to the standard library.
 
 ## Types
 
