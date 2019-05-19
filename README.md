@@ -8,12 +8,16 @@
 - [For](#for)
 - [Function](#function)
 - [JSON](#json)
-- [Sort](#Sort)
+- [Sort](#sort)
 - [Crypto](#crypto)
 - [Runtime](#runtime)
 - [Sync](#sync)
 
 ---
+
+## Other Stuff
+
+[Golang Proverbs](https://go-proverbs.github.io/)
 
 ## Command 
 
