@@ -592,3 +592,43 @@ func recv(c <-chan string, wg *sync.WaitGroup) {
 	wg.Done()
 }
 ```
+
+Fan-In:
+
+```go
+func main() {
+	jobs := []<-chan int{calc(0, 10), calc(11, 20), calc(0, 10), calc(11, 20)}
+	c := fanIn(jobs...)
+	s := 0
+	for range jobs {
+		s += <-c
+	}
+	fmt.Println("s =", s)
+}
+
+func calc(from, to int) <-chan int {
+	c := make(chan int)
+	sum := 0
+	go func() {
+		for i := from; i <= to; i++ {
+			sum += i
+		}
+		c <- sum
+	}()
+	return c
+}
+
+func fanIn(inputs ...<-chan int) <-chan int {
+	c := make(chan int)
+	for _, input := range inputs {
+		go func(input <-chan int) {
+			c <- <-input
+		}(input)
+	}
+	return c
+}
+```
+
+|Result |
+|-------|
+|s = 420|
