@@ -537,3 +537,45 @@ func main() {
 	}
 }
 ```
+
+Usin range:
+
+```go
+func main() {
+	c := make(chan string)
+
+	go func() {
+		for i := 0; i < 10; i++ {
+			getData(c)
+		}
+		close(c)
+	}()
+
+	for v := range c {
+		fmt.Println("Received:", v)
+	}
+
+	fmt.Println("Finished")
+}
+```
+
+Channel Directions:
+
+```go
+func main() {
+	c := make(chan string)
+	go send(c)
+	recv(c)
+}
+
+// send-only channel
+func send(c chan<- string) {
+	time.Sleep(time.Duration(500) * time.Millisecond)
+	c <- "Content"
+}
+
+// receive-only channel
+func recv(c <-chan string) {
+	fmt.Println(<-c)
+}
+```
