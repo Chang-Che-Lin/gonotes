@@ -16,6 +16,14 @@
 
 ---
 
+## Resources
+
+- [GoDoc](https://godoc.org/)
+
+- [Go by Example](https://gobyexample.com/)
+
+- [JSON-to-Go](https://mholt.github.io/json-to-go/)
+
 ## Other Stuff
 
 - [Golang Proverbs](https://go-proverbs.github.io/)
