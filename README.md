@@ -507,6 +507,9 @@ func getData(c chan string) {
 ```
 
 Using [select](https://golang.org/ref/spec#Select_statements):
+
+You also can set channel timeout in `select` with `time.After`.
+
 ```go
 func main() {
 	c := make(chan string)
