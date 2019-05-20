@@ -495,6 +495,12 @@ func f(times int, inc func(*int64)) {
 
 Channels are allocated with [make](https://golang.org/ref/spec#Making_slices_maps_and_channels) and may be closed with the built-in function [close](https://golang.org/ref/spec#Close).
 
+- Resources
+	- https://blog.golang.org/pipelines
+
+
+Buffered & Unbuffered:
+
 ```go
 func main() {
 	// unbuffered channel
