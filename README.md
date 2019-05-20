@@ -572,18 +572,23 @@ Channel Directions:
 ```go
 func main() {
 	c := make(chan string)
-	go send(c)
-	recv(c)
+	wg := sync.WaitGroup{}
+	wg.Add(1)
+
+	go recv(c, &wg)
+	send(c)
+
+	wg.Wait()
 }
 
 // send-only channel
 func send(c chan<- string) {
-	time.Sleep(time.Duration(500) * time.Millisecond)
 	c <- "Content"
 }
 
 // receive-only channel
-func recv(c <-chan string) {
+func recv(c <-chan string, wg *sync.WaitGroup) {
 	fmt.Println(<-c)
+	wg.Done()
 }
 ```
