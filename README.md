@@ -619,13 +619,12 @@ func (l line) dist() float64 {
 }
 
 func main() {
-	l1 := line{point{10, 10}, point{20, 20}}
-	l2 := line{point{5, 10}, point{20.4, 582.1}}
+	lines := []line{
+		line{point{10, 10}, point{20, 20}},
+		line{point{5, 10}, point{20.4, 582.1}},
+	}
 
-	c := gen(l1, l2)
-	out := cdist(c)
-
-	for d := range out {
+	for d := range cdist(gen(lines...)) {
 		fmt.Println(d)
 	}
 }
