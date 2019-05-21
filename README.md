@@ -13,6 +13,7 @@
 - [Runtime](#runtime)
 - [Sync](#sync)
 - [Channel](#channel)
+- [Pipeline](#pipeline)
 
 ---
 
@@ -599,7 +600,7 @@ func recv(c <-chan string, wg *sync.WaitGroup) {
 }
 ```
 
-Pipline:
+## Pipeline
 
 ```go
 type point struct {
