@@ -657,7 +657,50 @@ func cdist(in <-chan line) <-chan float64 {
 |14.142135623730951|
 |572.3072339224798 |
 
-Fan-In:
+Fan-in, fan-out:
+
+```go
+func main() {
+	lines := []line{
+		line{point{10, 10}, point{20, 20}},
+		line{point{534.16, 10.123}, point{20.4, 582.1}},
+		line{point{5, 10}, point{20.4, 724.1}},
+		line{point{54, 27}, point{75.4, 4.452}},
+		line{point{55, 527}, point{275.2, 360.45}},
+	}
+	in := gen(lines...)
+	out := merge(cdist(in), cdist(in))
+
+	for dist := range out {
+		fmt.Println("dist =", dist)
+	}
+}
+
+func merge(ins ...<-chan float64) <-chan float64 {
+	var wg sync.WaitGroup
+	out := make(chan float64)
+
+	wg.Add(len(ins))
+
+	for _, in := range ins {
+		go func(c <-chan float64) {
+			for v := range c {
+				out <- v
+			}
+			wg.Done()
+		}(in)
+	}
+
+	go func() {
+		wg.Wait()
+		close(out)
+	}()
+
+	return out
+}
+```
+
+Another one:
 
 ```go
 func main() {
