@@ -13,6 +13,7 @@
 - [Runtime](#runtime)
 - [Sync](#sync)
 - [Channel](#channel)
+
 - [Pipeline](#pipeline)
 
 ---
@@ -700,6 +701,14 @@ func merge(ins ...<-chan float64) <-chan float64 {
 	return out
 }
 ```
+
+|Result                   |
+|-------------------------|
+|dist = 14.142135623730951|
+|dist = 714.2660358717892 |
+|dist = 768.8348497102612 |
+|dist = 276.0922717136429 |
+|dist = 31.08652930129062 |
 
 Another one:
 
