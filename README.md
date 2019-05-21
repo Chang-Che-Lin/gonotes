@@ -600,7 +600,7 @@ func recv(c <-chan string, wg *sync.WaitGroup) {
 }
 ```
 
-## Pipeline
+### Pipeline
 
 ```go
 type point struct {
