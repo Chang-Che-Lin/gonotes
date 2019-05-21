@@ -599,6 +599,65 @@ func recv(c <-chan string, wg *sync.WaitGroup) {
 }
 ```
 
+Pipline:
+
+```go
+type point struct {
+	x float64
+	y float64
+}
+
+type line struct {
+	from point
+	to   point
+}
+
+func (l line) dist() float64 {
+	dx := l.to.x - l.from.x
+	dy := l.to.y - l.from.y
+	return math.Sqrt(dx*dx + dy*dy)
+}
+
+func main() {
+	l1 := line{point{10, 10}, point{20, 20}}
+	l2 := line{point{5, 10}, point{20.4, 582.1}}
+
+	c := gen(l1, l2)
+	out := cdist(c)
+
+	for d := range out {
+		fmt.Println(d)
+	}
+}
+
+func gen(lines ...line) <-chan line {
+	out := make(chan line)
+	go func() {
+		for _, l := range lines {
+			out <- l
+		}
+		close(out)
+	}()
+	return out
+}
+
+func cdist(in <-chan line) <-chan float64 {
+	out := make(chan float64)
+	go func() {
+		for l := range in {
+			out <- l.dist()
+		}
+		close(out)
+	}()
+	return out
+}
+```
+
+|Result            |
+|------------------|
+|14.142135623730951|
+|572.3072339224798 |
+
 Fan-In:
 
 ```go
