@@ -14,6 +14,7 @@
 - [Sync](#sync)
 - [Channel](#channel)
 	- [Pipeline](#pipeline)
+- [Context](#context)
 
 ---
 
@@ -748,3 +749,69 @@ func fanIn(inputs ...<-chan int) <-chan int {
 |Result |
 |-------|
 |s = 420|
+
+## Context
+
+Cancel:
+
+```go
+func main() {
+	ctx, cancel := context.WithCancel(context.Background())
+
+	go func() {
+		time.Sleep(time.Second * 3)
+		cancel()
+	}()
+
+	for v := range gen(ctx) {
+		fmt.Println(v)
+	}
+}
+
+func gen(ctx context.Context) <-chan int {
+	out := make(chan int)
+	go func() {
+		for i := 0; ; i++ {
+			select {
+			case <-ctx.Done():
+				close(out)
+				return
+			default:
+				time.Sleep(time.Duration(rand.Intn(500)) * time.Millisecond)
+				out <- i
+			}
+		}
+	}()
+	return out
+}
+```
+
+Deadline:
+
+```go
+func main() {
+	ctx, cancel := context.WithDeadline(context.Background(), time.Now().Add(time.Second*3))
+
+	defer cancel()
+
+	for v := range gen(ctx) {
+		fmt.Println(v)
+	}
+}
+```
+
+Timeout:
+
+```go
+func main() {
+	ctx, cancel := context.WithTimeout(context.Background(), time.Second*3)
+	defer cancel()
+
+	select {
+	case <-time.After(4500 * time.Millisecond):
+		fmt.Println("...")
+	case <-ctx.Done():
+		fmt.Println(ctx.Err())
+	}
+}
+```
