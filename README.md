@@ -828,3 +828,34 @@ func main() {
 	}
 }
 ```
+
+## Error
+
+fatal: `os.Exit(1)`.
+panic: `panic()`, run defered function.
+
+```go
+func main() {
+	fnPanic()
+	fnFatal()
+	fmt.Println("Will Exit")
+}
+
+func fnPanic() {
+	defer func() {
+		fmt.Println("Recovered", recover())
+	}()
+
+	log.Panic("PANIC!")
+}
+
+func fnFatal() {
+	log.Fatalln("Fatal")
+}
+```
+
+|Result                    |
+|--------------------------|
+|2019/05/24 13:34:52 PANIC!|
+|Recovered PANIC!          |
+|2019/05/24 13:34:52 Fatal |
