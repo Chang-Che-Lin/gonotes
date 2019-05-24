@@ -144,6 +144,7 @@ The underlying array will be nil if the variadic argument is empty.
 
 ```go
 func main() {
+	// var m map[string]int // Panic!
 	m := make(map[string]int)
 	m["ID_01"] = 20
 	fmt.Println(m)
