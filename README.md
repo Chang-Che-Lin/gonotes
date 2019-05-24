@@ -15,6 +15,7 @@
 - [Channel](#channel)
 	- [Pipeline](#pipeline)
 - [Context](#context)
+- [Error](#error)
 
 ---
 
@@ -832,6 +833,7 @@ func main() {
 ## Error
 
 fatal: `os.Exit(1)`.
+
 panic: `panic()`, run defered function.
 
 ```go
