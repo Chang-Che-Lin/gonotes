@@ -41,6 +41,18 @@ Check if there's a race condition in our code.
 
 byte = uint8
 
+```go
+type MyInt int
+type MyInt2 = int
+
+func main() {
+	var _ MyInt = MyInt(int(1)) // var _ MyInt = int(1) 🚫
+	var _ MyInt2 = int(0)
+}
+```
+
+To `type T1 T2`, explicit conversion is required.
+
 ## Method Set
 
 [Language spec](https://golang.org/ref/spec#Method_sets)
