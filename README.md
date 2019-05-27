@@ -16,6 +16,7 @@
 	- [Pipeline](#pipeline)
 - [Context](#context)
 - [Error](#error)
+- [Testing](#testing)
 
 ---
 
@@ -136,9 +137,10 @@ func main() {
 }
 ```
 
-|Result                |
-|----------------------|
-|This is a "raw string"|
+Result:
+
+`This is a "raw string"`
+
 
 ## Slice
 
@@ -160,11 +162,14 @@ func printSum(nums ...int) int {
 }
 ```
 
-|Result|
-|------|
-|Is nil : false, sum =  6|
-|Is nil : false, sum = 15|
-|Is nil : true , sum =  0|
+Result:
+
+```
+Is nil : false, sum =  6
+Is nil : false, sum = 15
+Is nil : true , sum =  0
+```
+
 
 > printSum()
 
@@ -185,10 +190,13 @@ func main() {
 }
 ```
 
-|Result       |
-|-------------|
-|map[ID_01:20]|
-|map[ID_02:30]|
+Result:
+
+```
+map[ID_01:20]
+map[ID_02:30]
+```
+
 
 ## Interface 
 
@@ -210,9 +218,12 @@ func myFunc(i interface{}) {
 }
 ```
 
-|Result              |
-|--------------------|
-|Type: int, Value: 10|
+Result:
+
+```
+Type: int, Value: 10
+```
+
 
 ---
 
@@ -243,10 +254,13 @@ func main() {
 }
 ```
 
-|Result           |
-|-----------------|
-|Area = 314.159, circumference = 62.832|
-|Area = 314.159, circumference = 62.832|
+Result:
+
+```
+Area = 314.159, circumference = 62.832
+Area = 314.159, circumference = 62.832
+```
+
 
 The `circumference()` in struct `circle` uses pointer receiver,
 so we must pass a pointer of `circle` as the argument of `printCircleInfo()`.
@@ -263,11 +277,14 @@ func main() {
 }
 ```
 
-|Result              |
-|--------------------|
-|1|
-|2|
-|3|
+Result:
+
+```
+1
+2
+3
+```
+
 
 ```go
 func main() {
@@ -277,11 +294,14 @@ func main() {
 }
 ```
 
-|Result              |
-|--------------------|
-|0|
-|1|
-|2|
+Result:
+
+```
+0
+1
+2
+```
+
 
 ```go
 func main() {
@@ -295,9 +315,11 @@ func main() {
 }
 ```
 
-|Result              |
-|--------------------|
-|1 2 3 4 5	     |
+Result:
+
+```
+1 2 3 4 5
+```
 
 
 ```go
@@ -310,9 +332,11 @@ func main() {
 }
 ```
 
-|Result              |
-|--------------------|
-|0.1 1.2 2.3	     |
+Result:
+
+```
+0.1 1.2 2.3
+```
 
 ## Function
 
@@ -324,9 +348,12 @@ func main() {
 }
 ```
 
-|Result|
-|----------------------------|
-|This is an anonymous function|
+Result:
+
+```
+This is an anonymous function
+```
+
 
 ## JSON
 
@@ -356,10 +383,13 @@ func main() {
 }
 ```
 
-|Result|
-|------|
-|[{"RealName":"scchn","Age":26},{"RealName":"gbchn","Age":25}]|
-|[{Name:scchn Age:26} {Name:gbchn Age:25}]|
+Result:
+
+```
+[{"RealName":"scchn","Age":26},{"RealName":"gbchn","Age":25}]
+[{Name:scchn Age:26} {Name:gbchn Age:25}]
+```
+
 
 > Name string \`json:"RealName"\`
 
@@ -432,10 +462,12 @@ func printInfo(ps []Person) {
 }
 ````
 
-|Result|
-|-|
-|James(22) Jordan(19) Jack(39)| 
-|Jordan(19) James(22) Jack(39)|
+Result:
+
+```
+James(22) Jordan(19) Jack(39)
+Jordan(19) James(22) Jack(39)
+```
 
 
 ## Crypto
@@ -460,10 +492,12 @@ func main() {
 }
 ```
 
-|Result|
-|-|
-|$2a$04$XTBZQ4r/XLhF0K/5kqwBF.SwbWIdmAw3cJEQf5aTa1CLBsD.hOuLG|
-|Password correct|
+Result:
+
+```
+$2a$04$XTBZQ4r/XLhF0K/5kqwBF.SwbWIdmAw3cJEQf5aTa1CLBsD.hOuLG
+Password correct
+```
 
 
 ## Runtime
@@ -477,12 +511,14 @@ func main() {
 }
 ```
 
-|Result|
-|-|
-|ARCH      : amd64 |
-|OS        : darwin|
-|CPUs      : 4	   |
-|Goroutines: 1	   |
+Result:
+
+```
+ARCH      : amd64
+OS        : darwin
+CPUs      : 4
+Goroutines: 1
+```
 
 
 ## Sync 
@@ -515,9 +551,9 @@ func from11To20() {
 }
 ```
 
-|Result|
-|-|
-|11 12 13 14 15 16 17 18 19 20 1 2 3 4 5 6 7 8 9 10|
+Result:
+
+`11 12 13 14 15 16 17 18 19 20 1 2 3 4 5 6 7 8 9 10`
 
 ```go
 var (
@@ -559,11 +595,14 @@ func f(times int, inc func(*int64)) {
 }
 ```
 
-|Result        |
-|--------------|
-|Counter = 985 |
-|Counter = 1000|
-|Counter = 1000|
+Result:
+
+```
+Counter = 985 
+Counter = 1000
+Counter = 1000
+```
+
 
 ## Channel
 
@@ -726,10 +765,12 @@ func cdist(in <-chan line) <-chan float64 {
 }
 ```
 
-|Result            |
-|------------------|
-|14.142135623730951|
-|572.3072339224798 |
+Result:
+
+```
+14.142135623730951
+572.3072339224798 
+```
 
 Fan-in, fan-out:
 
@@ -774,13 +815,15 @@ func merge(ins ...<-chan float64) <-chan float64 {
 }
 ```
 
-|Result                   |
-|-------------------------|
-|dist = 14.142135623730951|
-|dist = 714.2660358717892 |
-|dist = 768.8348497102612 |
-|dist = 276.0922717136429 |
-|dist = 31.08652930129062 |
+Result:
+
+```
+dist = 14.142135623730951
+dist = 714.2660358717892 
+dist = 768.8348497102612 
+dist = 276.0922717136429 
+dist = 31.08652930129062 
+```
 
 Another one:
 
@@ -818,9 +861,10 @@ func fanIn(inputs ...<-chan int) <-chan int {
 }
 ```
 
-|Result |
-|-------|
-|s = 420|
+Result:
+
+`s = 420`
+
 
 ## Context
 
@@ -914,8 +958,55 @@ func fnFatal() {
 }
 ```
 
-|Result                    |
-|--------------------------|
-|2019/05/24 13:34:52 PANIC!|
-|Recovered PANIC!          |
-|2019/05/24 13:34:52 Fatal |
+Result:
+
+```
+2019/05/24 13:34:52 PANIC!
+Recovered PANIC!
+2019/05/24 13:34:52 Fatal
+```
+
+
+## Testing
+
+In packge file:
+
+```go
+// Average returns average of the given numbers
+func Average(nums []float32) float32 {
+	var sum float32
+	for _, num := range nums {
+		sum += num
+	}
+	return sum / float32(len(nums))
+}
+```
+
+In test file:
+
+```go
+func TestAverage(t *testing.T) {
+	tests := []struct {
+		nums   []float32
+		result float32
+	}{
+		{[]float32{1, 2}, 1.5},
+		{[]float32{1, 2, 3}, 2},
+	}
+
+	for _, test := range tests {
+		result := Average(test.nums)
+		if result != test.result {
+			t.Error("Expected", test.result, ", got ", result)
+		}
+	}
+}
+```
+
+Result:
+
+```
+$ go test
+PASS
+ok      github.com/scchnxx/prac 0.007s
+```
