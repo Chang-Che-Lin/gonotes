@@ -267,6 +267,8 @@ so we must pass a pointer of `circle` as the argument of `printCircleInfo()`.
 
 ## For
 
+With condition:
+
 ```go
 func main() {
 	var i = 0
@@ -285,6 +287,7 @@ Result:
 3
 ```
 
+With init-condition-post:
 
 ```go
 func main() {
@@ -302,6 +305,7 @@ Result:
 2
 ```
 
+Using range:
 
 ```go
 func main() {
@@ -321,6 +325,7 @@ Result:
 1 2 3 4 5
 ```
 
+Range over a slice:
 
 ```go
 func main() {
