@@ -54,6 +54,35 @@ func main() {
 
 To `type T1 T2`, explicit conversion is required.
 
+Assertion:
+
+```go
+type myError struct {
+	text string
+}
+
+func (e myError) Error() string {
+	return "Error : " + e.text
+}
+
+func main() {
+	err1 := myError{"system failure"}
+	var err2 error = err1
+
+	fmt.Println(err1.Error())
+
+	if result, ok := err2.(myError); ok {
+		fmt.Println(result.text)
+	}
+}
+```
+
+Result:
+```
+Error : system failure
+system failure
+```
+
 ## Method Set
 
 [Language spec](https://golang.org/ref/spec#Method_sets)
