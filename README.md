@@ -336,6 +336,35 @@ func main() {
 
 The JSON tag after var declaration is like `CodingKey` in Swift:
 
+Pretty-print:
+
+```go
+type person struct {
+	First string `json:"first_name"`
+	Last  string `json:"last_name"`
+}
+
+func main() {
+	p := person{"sc", "chn"}
+
+	bs, err := json.MarshalIndent(p, "", "    ")
+
+	if err != nil {
+		log.Fatalln(err)
+	}
+
+	fmt.Println(string(bs))
+}
+```
+
+Result:
+```json
+{
+    "first_name": "sc",
+    "last_name": "chn"
+}
+```
+
 ## Sort
 
 ```go
