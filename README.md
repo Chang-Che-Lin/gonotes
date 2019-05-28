@@ -17,6 +17,7 @@
 - [Context](#context)
 - [Error](#error)
 - [Testing](#testing)
+- [Doc]
 
 ---
 
@@ -1014,4 +1015,24 @@ Result:
 $ go test
 PASS
 ok      github.com/scchnxx/prac 0.007s
+```
+
+
+## Doc
+
+```go
+// Dist returns the distance between p1 and p2.
+func Dist(p1, p2 Point) float64 {
+	dx := p2.X - p1.X
+	dy := p2.Y - p1.Y
+	return math.Sqrt(dx*dx + dy*dy)
+}
+```
+
+```
+$ go doc Dist
+
+func Dist(p1, p2 Point) float64
+    Dist returns the distance to p2.
+    
 ```
