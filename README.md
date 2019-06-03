@@ -1035,5 +1035,3 @@ func Dist(p1, p2 Point) float64
     Dist returns the distance to p2.
     
 ```
-
-...
