@@ -142,6 +142,22 @@ Result:
 
 `This is a "raw string"`
 
+### Better Way to Concatenate Strings
+
+```go
+func main() {
+	var buffer bytes.Buffer
+	ss := []string{"g", "o", "l", "a", "n", "g"}
+	for _, c := range ss {
+		buffer.WriteString(c)
+	}
+	fmt.Println(buffer.String())
+}
+```
+
+Result:
+`golag`
+
 
 ## Slice
 
